@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4">
               <a
-                href="https://twitter.com/agenxia"
+                href="https://loopivia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
@@ -28,7 +28,7 @@ const Footer = () => {
                 <FaTwitter className="h-5 w-5" />
               </a>
               <a
-                href="https://www.instagram.com/agenxia"
+                href="https://loopivia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
@@ -37,7 +37,7 @@ const Footer = () => {
                 <FiInstagram className="h-5 w-5" />
               </a>
               <a
-                href="https://www.linkedin.com/company/agenxia"
+                href="https://www.linkedin.com/company/loopivia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
@@ -46,7 +46,7 @@ const Footer = () => {
                 <FiLinkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://www.facebook.com/agenxia"
+                href="https://www.loopivia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"

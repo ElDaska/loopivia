@@ -19,12 +19,12 @@ const Pourquoi = () => {
           {/* Animation image */}
           <div className="flex justify-center items-center space-x-6 mb-10">
             <img
-              src="/src/assets/automate.svg"
+              src="/src/assets/automate.png"
               alt="Automatisation"
               className="w-16 hover:scale-110 transition-transform duration-500"
             />
             <img
-              src="/src/assets/ai-icon.svg"
+              src="/src/assets/ai-icon.png"
               alt="IA"
               className="w-16 hover:scale-110 transition-transform duration-500"
             />
