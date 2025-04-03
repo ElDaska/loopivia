@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4">
               <a
-                href="https://loopivia.com/"
+                href="https://www.loopivia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
@@ -28,7 +28,7 @@ const Footer = () => {
                 <FaTwitter className="h-5 w-5" />
               </a>
               <a
-                href="https://loopivia.com/"
+                href="https://www.loopivia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
