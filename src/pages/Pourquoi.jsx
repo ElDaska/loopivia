@@ -16,19 +16,6 @@ const Pourquoi = () => {
             mais plus intelligemment. Vous pouvez scaler votre entreprise sans avoir besoin de recruter.
           </p>
 
-          {/* Animation image */}
-          <div className="flex justify-center items-center space-x-6 mb-10">
-            <img
-              src="/src/assets/automate.png"
-              alt="Automatisation"
-              className="w-16 hover:scale-110 transition-transform duration-500"
-            />
-            <img
-              src="/src/assets/ai-icon.png"
-              alt="IA"
-              className="w-16 hover:scale-110 transition-transform duration-500"
-            />
-          </div>
 
           <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
             Quels sont les bénéfices ?
