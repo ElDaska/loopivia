@@ -21,6 +21,7 @@ const Contact = () => {
     try {
       await fetch("https://script.google.com/macros/s/AKfycbyuoBv5-Set7plJI69dnaZpcvDN-iNK6pU_dBFFzRm1DFyz_2zShqcTU-SYsaqn3qx6/exec", {
         method: "POST",
+        mode: "no-cors", // Empêche l'erreur CORS
         headers: {
           "Content-Type": "application/json",
         },
@@ -38,9 +39,7 @@ const Contact = () => {
       <section className="text-center py-20 md:py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-blue-400 mb-6">Contactez-nous</h1>
-          <p className="text-lg text-gray-300">
-            Choisissez votre méthode de contact préférée.
-          </p>
+          <p className="text-lg text-gray-300">Choisissez votre méthode de contact préférée.</p>
         </div>
       </section>
 
@@ -61,7 +60,9 @@ const Contact = () => {
           title: "Formulaire de contact",
           icon: <FaPhone className="text-blue-400 mr-3" />,
           content: submitted ? (
-            <span className="text-green-400 font-semibold text-lg">Merci pour votre message ! Nous vous contacterons rapidement.</span>
+            <span className="text-green-400 font-semibold text-lg">
+              Merci pour votre message ! Nous vous contacterons rapidement.
+            </span>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div>
