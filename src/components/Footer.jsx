@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiInstagram, FiLinkedin, FiFacebook } from "react-icons/fi";
 import { FaTiktok } from "react-icons/fa";
-import logo from "../assets/icon_sans_fond.png"; // Assurez-vous que le logo est dans le dossier "assets"
+import logo from "../assets/icon_sans_fond.png";
 
 const Footer = () => {
   return (
@@ -19,24 +19,25 @@ const Footer = () => {
               Libérez votre productivité avec des outils intelligents, accessibles et sur-mesure pour votre entreprise.
             </p>
             <div className="flex space-x-6 mt-4">
+              {/* Réseaux externes */}
               <a
                 href="https://x.com/ContactLoopivia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
-                aria-label="Twitter"
+                aria-label="X / Twitter"
               >
                 <FaXTwitter className="h-5 w-5" />
               </a>
-              <a
-                href="https://www.loopivia.com/comingsoon"
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Instagram vers page ComingSoon */}
+              <Link
+                to="/comingsoon"
                 className="text-gray-300 hover:text-gray-400"
                 aria-label="Instagram"
               >
                 <FiInstagram className="h-5 w-5" />
-              </a>
+              </Link>
+              {/* LinkedIn externe */}
               <a
                 href="https://www.linkedin.com/company/loopivia"
                 target="_blank"
@@ -46,15 +47,15 @@ const Footer = () => {
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
-              <a
-                href="https://www.loopivia.com/comingsoon"
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Facebook vers page ComingSoon */}
+              <Link
+                to="/comingsoon"
                 className="text-gray-300 hover:text-gray-400"
                 aria-label="Facebook"
               >
                 <FiFacebook className="h-5 w-5" />
-              </a>
+              </Link>
+              {/* TikTok externe */}
               <a
                 href="https://www.tiktok.com/@loopivia"
                 target="_blank"
@@ -71,9 +72,21 @@ const Footer = () => {
           <div className="text-right lg:col-start-4">
             <h3 className="text-right font-semibold text-white uppercase tracking-wide mb-4">Liens importants</h3>
             <ul className="space-y-2">
-              <li><Link to="/qui-sommes-nous" className="text-gray-300 hover:text-gray-400 text-sm">À propos</Link></li>
-              <li><Link to="/pourquoi-automatiser" className="text-gray-300 hover:text-gray-400 text-sm">Pourquoi automatiser ?</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-gray-400 text-sm">Contact</Link></li>
+              <li>
+                <Link to="/qui-sommes-nous" className="text-gray-300 hover:text-gray-400 text-sm">
+                  À propos
+                </Link>
+              </li>
+              <li>
+                <Link to="/pourquoi-automatiser" className="text-gray-300 hover:text-gray-400 text-sm">
+                  Pourquoi automatiser ?
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-gray-400 text-sm">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
