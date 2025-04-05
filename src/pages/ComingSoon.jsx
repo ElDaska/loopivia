@@ -47,7 +47,7 @@ const ComingSoon = () => {
           rel="noopener noreferrer"
           className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition"
         >
-          Réserver une démo gratuite
+          Réserver un RDV gratuit
         </a>
       </section>
 
