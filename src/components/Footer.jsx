@@ -57,7 +57,7 @@ const Footer = () => {
               </Link>
               {/* TikTok externe */}
               <a
-                href="https://www.tiktok.com/@loopivia"
+                href="https://www.tiktok.com/@loopivia?refer=creator_embed"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"

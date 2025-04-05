@@ -17,13 +17,13 @@ const Hero = () => {
             Automatisez, Accélérez, <br /> Gagnez un temps fou.
           </h1>
           <p className="text-gray-300">
-            🚀 Libérez-vous des tâches répétitives.
+            Automatisez votre business en toute simplicité avec Loopivia. Pensé pour les PME, freelances, TPE et indépendants
             <br />
             Nous connectons vos outils, alimentons vos process avec l’IA,
             et mettons votre business en pilote automatique.
           </p>
           <p className="text-blue-400 font-medium">
-            Vous gagnez du temps, vous gagnez en efficacité, vous scalez sans recruter.
+          gagnez du temps, réduisez vos coûts et boostez votre croissance grâce à nos outils d’automatisation sur-mesure.
           </p>
           <Link
             to="/contact"
