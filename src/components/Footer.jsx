@@ -29,7 +29,7 @@ const Footer = () => {
                 <FaXTwitter className="h-5 w-5" />
               </a>
               <a
-                href="https://www.loopivia.com/ComingSoon"
+                href="https://www.loopivia.com/comingsoon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
@@ -47,7 +47,7 @@ const Footer = () => {
                 <FiLinkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://www.loopivia.com/ComingSoon"
+                href="https://www.loopivia.com/comingsoon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
