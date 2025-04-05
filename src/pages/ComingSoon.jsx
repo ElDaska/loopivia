@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { FaXTwitter, FaLinkedin, FaTiktok, FaInstagram, FaFacebook } from "react-icons/fa6";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const ComingSoon = () => {
@@ -43,7 +42,7 @@ const ComingSoon = () => {
         </div>
 
         <a
-          href="https://calendly.com/loopivia/30min"
+          href="https://www.loopivia.com/contact"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition"
