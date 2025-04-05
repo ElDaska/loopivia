@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronDown, FaEnvelope, FaPhone, FaCalendarAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const Contact = () => {
@@ -19,14 +18,15 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbyuoBv5-Set7plJI69dnaZpcvDN-iNK6pU_dBFFzRm1DFyz_2zShqcTU-SYsaqn3qx6/exec", {
-        method: "POST",
-        mode: "no-cors", // Empêche l'erreur CORS
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyuoBv5-Set7plJI69dnaZpcvDN-iNK6pU_dBFFzRm1DFyz_2zShqcTU-SYsaqn3qx6/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       setSubmitted(true);
       setFormData({ nom: "", email: "", message: "" });
     } catch (error) {
@@ -34,9 +34,20 @@ const Contact = () => {
     }
   };
 
+  // Injecte le script Calendly une seule fois
+  useEffect(() => {
+    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
-    <main className="min-h-screen bg-[#0f172a] text-white">
-      <section className="text-center py-20 md:py-20 px-6">
+    <main className="min-h-screen bg-[rgb(15,23,42)] text-white">
+      <section className="text-center py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-blue-400 mb-6">Contactez-nous</h1>
           <p className="text-lg text-gray-300">Choisissez votre méthode de contact préférée.</p>
@@ -119,12 +130,11 @@ const Contact = () => {
               <p className="text-gray-300 mb-4">
                 Prenez un rendez-vous de 15 minutes avec un membre de notre équipe.
               </p>
-              <Link
-                to="/calendrier"
-                className="inline-block bg-blue-600 hover:bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold transition"
-              >
-                Réserver un créneau
-              </Link>
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/loopivia/30min?locale=fr&background_color=0f172a&text_color=ffffff&primary_color=60a5fa"
+                style={{ minWidth: "320px", height: "700px" }}
+              ></div>
             </div>
           ),
         }].map(({ key, title, icon, content }) => (
