@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaChevronDown, FaEnvelope, FaPhone, FaCalendarAlt } from "react-icons/fa";
 import Footer from "../components/Footer";
+import useCalendly from "../components/useCalendly"; // <- sans les accolades car export default
 
 const Contact = () => {
   const [openSection, setOpenSection] = useState(null);
@@ -34,17 +35,6 @@ const Contact = () => {
     }
   };
 
-  // Injecte le script Calendly une seule fois
-  useEffect(() => {
-    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
     <main className="min-h-screen bg-[rgb(15,23,42)] text-white">
       <section className="text-center py-20 px-6">
@@ -55,89 +45,94 @@ const Contact = () => {
       </section>
 
       <section className="max-w-4xl mx-auto px-4 pb-24 space-y-6">
-        {[{
-          key: "email",
-          title: "Par email",
-          icon: <FaEnvelope className="text-blue-400 mr-3" />,
-          content: (
-            <p className="text-gray-300 text-lg">
-              Envoyez-nous un message à : <strong>contact@loopivia.com</strong><br />
-              Nous répondons sous 24h ouvrées.
-            </p>
-          ),
-        },
-        {
-          key: "form",
-          title: "Formulaire de contact",
-          icon: <FaPhone className="text-blue-400 mr-3" />,
-          content: submitted ? (
-            <span className="text-green-400 font-semibold text-lg">
-              Merci pour votre message ! Nous vous contacterons rapidement.
-            </span>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-              <div>
-                <label className="block text-gray-300">Nom</label>
-                <input
-                  type="text"
-                  name="nom"
-                  value={formData.nom}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[#1f2937] text-white rounded-lg focus:outline-none"
-                  placeholder="Votre nom"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[#1f2937] text-white rounded-lg focus:outline-none"
-                  placeholder="Votre email"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300">Message</label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[#1f2937] text-white rounded-lg focus:outline-none"
-                  placeholder="Votre message"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition"
-              >
-                Envoyer
-              </button>
-            </form>
-          ),
-        },
-        {
-          key: "rdv",
-          title: "Réserver un rendez-vous",
-          icon: <FaCalendarAlt className="text-blue-400 mr-3" />,
-          content: (
-            <div className="mt-4">
-              <p className="text-gray-300 mb-4">
-                Prenez un rendez-vous de 15 minutes avec un membre de notre équipe.
+        {[
+          {
+            key: "email",
+            title: "Par email",
+            icon: <FaEnvelope className="text-blue-400 mr-3" />,
+            content: (
+              <p className="text-gray-300 text-lg">
+                Envoyez-nous un message à : <strong>contact@loopivia.com</strong><br />
+                Nous répondons sous 24h ouvrées.
               </p>
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/loopivia/30min?locale=fr&background_color=0f172a&text_color=ffffff&primary_color=60a5fa"
-                style={{ minWidth: "320px", height: "700px" }}
-              ></div>
-            </div>
-          ),
-        }].map(({ key, title, icon, content }) => (
+            ),
+          },
+          {
+            key: "form",
+            title: "Formulaire de contact",
+            icon: <FaPhone className="text-blue-400 mr-3" />,
+            content: submitted ? (
+              <span className="text-green-400 font-semibold text-lg">
+                Merci pour votre message ! Nous vous contacterons rapidement.
+              </span>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                <div>
+                  <label className="block text-gray-300">Nom</label>
+                  <input
+                    type="text"
+                    name="nom"
+                    value={formData.nom}
+                    onChange={handleChange}
+                    className="w-full p-3 bg-[#1f2937] text-white rounded-lg focus:outline-none"
+                    placeholder="Votre nom"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-3 bg-[#1f2937] text-white rounded-lg focus:outline-none"
+                    placeholder="Votre email"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300">Message</label>
+                  <textarea
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full p-3 bg-[#1f2937] text-white rounded-lg focus:outline-none"
+                    placeholder="Votre message"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition"
+                >
+                  Envoyer
+                </button>
+              </form>
+            ),
+          },
+          {
+            key: "rdv",
+            title: "Réserver un rendez-vous",
+            icon: <FaCalendarAlt className="text-blue-400 mr-3" />,
+            content: (() => {
+              useCalendly(openSection === "rdv"); // appel du hook ici
+              return (
+                <div className="mt-4">
+                  <p className="text-gray-300 mb-4">
+                    Prenez un rendez-vous de 15 minutes avec un membre de notre équipe.
+                  </p>
+                  <div
+                    className="calendly-inline-widget"
+                    data-url="https://calendly.com/loopivia/30min?locale=fr&background_color=0f172a&text_color=ffffff&primary_color=60a5fa"
+                    style={{ minWidth: "320px", height: "700px" }}
+                  ></div>
+                </div>
+              );
+            })(),
+          },
+        ].map(({ key, title, icon, content }) => (
           <div key={key} className="bg-[#1e293b] rounded-xl overflow-hidden shadow-xl">
             <button
               onClick={() => toggleSection(key)}
