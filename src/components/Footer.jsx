@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FiInstagram, FiLinkedin, FiFacebook } from "react-icons/fi";
+import { FaTiktok } from "react-icons/fa";
 import logo from "../assets/icon_sans_fond.png"; // Assurez-vous que le logo est dans le dossier "assets"
 
 const Footer = () => {
@@ -19,16 +20,16 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4">
               <a
-                href="https://www.loopivia.com/"
+                href="https://x.com/ContactLoopivia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
                 aria-label="Twitter"
               >
-                <FaTwitter className="h-5 w-5" />
+                <FaXTwitter className="h-5 w-5" />
               </a>
               <a
-                href="https://www.loopivia.com/"
+                href="https://www.loopivia.com/ComingSoon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
@@ -46,13 +47,22 @@ const Footer = () => {
                 <FiLinkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://www.loopivia.com/"
+                href="https://www.loopivia.com/ComingSoon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gray-400"
                 aria-label="Facebook"
               >
                 <FiFacebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@loopivia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-gray-400"
+                aria-label="TikTok"
+              >
+                <FaTiktok className="h-5 w-5" />
               </a>
             </div>
           </div>

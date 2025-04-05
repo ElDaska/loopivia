@@ -5,6 +5,7 @@ import Pourquoi from './pages/Pourquoi';
 import Contact from './pages/Contact';
 import ScrollToTopButton from './components/ScrollToTopButton'; // Importation du bouton de remontée
 import Qui from './pages/Qui'; // Importation de la page "Qui sommes-nous ?"
+import ComingSoon from './pages/ComingSoon';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/pourquoi-automatiser" element={<Pourquoi />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/qui-sommes-nous" element={<Qui />} /> {/* Route pour la page "Qui sommes-nous ?" */}
+        <Route path="/comingsoon" element={<ComingSoon />} /> {/* Route pour la page "Coming Soon" */}
       </Routes>
       <ScrollToTopButton /> {/* Le bouton pour remonter la page */}
     </div>
