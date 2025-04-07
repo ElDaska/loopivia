@@ -1,44 +1,41 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import HeroImage from "../components/HeroImage"; // ✅ Ton image animée
+import HeroImage from "../components/HeroImage";
 
 const Hero = () => {
   return (
-    <section className="bg-[#0f172a] text-white py-20 px-4 md:px-10">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        {/* Texte à gauche avec animation */}
+    <section className="bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white py-24 px-6 md:px-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        {/* Texte immersif */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
+          transition={{ duration: 1 }}
+          className="flex-1 space-y-6 text-center md:text-left md:mb-40"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-            Automatisez, Accélérez, <br /> Gagnez un temps fou.
+          <h1 className="text-4xl md:text-6xl font-bold leading-snug">
+            Et si votre business fonctionnait tout seul ?
           </h1>
-          <p className="text-gray-300">
-            Automatisez votre business en toute simplicité avec Loopivia. Pensé pour les PME, freelances, TPE et indépendants
-            <br />
-            Nous connectons vos outils, alimentons vos process avec l’IA,
-            et mettons votre business en pilote automatique.
+          <p className="text-gray-300 text-lg md:text-xl">
+            <span className="text-blue-400 font-semibold">Loopivia</span> connecte vos outils préférés à l'intelligence artificielle et à des processus automatisés pour libérer tout le potentiel de votre activité.
           </p>
-          <p className="text-blue-400 font-medium">
-          gagnez du temps, réduisez vos coûts et boostez votre croissance grâce à nos outils d’automatisation sur-mesure.
+          <p className="text-blue-400 font-medium italic">
+            Réduisez vos tâches, boostez vos résultats.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-blue-600 hover:bg-blue-500 transition px-6 py-3 rounded-lg text-lg font-semibold"
+            className="inline-block bg-blue-600 hover:bg-blue-500 transition duration-300 px-6 py-3 rounded-xl text-lg font-semibold shadow-xl"
           >
-            Demander un audit gratuit
+            Réserver un appel
           </Link>
         </motion.div>
 
-        {/* Image animée à droite */}
+        {/* Image animée */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="flex justify-center md:justify-end"
+          className="flex-1 flex justify-center"
         >
           <HeroImage />
         </motion.div>
