@@ -6,61 +6,56 @@ import logo from "../assets/icon_sans_fond.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0f172a] text-white py-8">
+    <footer className="bg-[#0f172a] text-white py-10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {/* Logo + Intro */}
-          <div className="flex flex-col items-start mb-4 lg:mb-0">
-            <div className="flex items-center mb-6">
+        <div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-4">
+          {/* Bloc logo + intro + réseaux */}
+          <div className="flex-1 flex flex-col items-center md:items-start">
+            <div className="flex items-center mb-5">
               <img className="h-10 w-auto mr-3" src={logo} alt="Logo Loopivia" />
               <span className="text-2xl font-bold text-white">Loopivia</span>
             </div>
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-sm text-gray-300 mb-4 text-center md:text-left max-w-xs">
               Libérez votre productivité avec des outils intelligents, accessibles et sur-mesure pour votre entreprise.
             </p>
-            <div className="flex space-x-6 mt-4">
-              {/* Réseaux externes */}
+            <div className="flex space-x-5 mt-2 mb-4 md:mb-0">
               <a
                 href="https://x.com/ContactLoopivia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-gray-400"
+                className="text-gray-300 hover:text-blue-400"
                 aria-label="X / Twitter"
               >
                 <FaXTwitter className="h-5 w-5" />
               </a>
-              {/* Instagram vers page ComingSoon */}
               <Link
                 to="/comingsoon"
-                className="text-gray-300 hover:text-gray-400"
+                className="text-gray-300 hover:text-pink-400"
                 aria-label="Instagram"
               >
                 <FiInstagram className="h-5 w-5" />
               </Link>
-              {/* LinkedIn externe */}
               <a
                 href="https://www.linkedin.com/company/loopivia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-gray-400"
+                className="text-gray-300 hover:text-blue-500"
                 aria-label="LinkedIn"
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
-              {/* Facebook vers page ComingSoon */}
               <Link
                 to="/comingsoon"
-                className="text-gray-300 hover:text-gray-400"
+                className="text-gray-300 hover:text-blue-400"
                 aria-label="Facebook"
               >
                 <FiFacebook className="h-5 w-5" />
               </Link>
-              {/* TikTok externe */}
               <a
                 href="https://www.tiktok.com/@loopivia?refer=creator_embed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-gray-400"
+                className="text-gray-300 hover:text-fuchsia-400"
                 aria-label="TikTok"
               >
                 <FaTiktok className="h-5 w-5" />
@@ -68,27 +63,29 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Liens principaux alignés à droite */}
-          <div className="text-right lg:col-start-4">
-            <h3 className="text-right font-semibold text-white uppercase tracking-wide mb-4">Liens importants</h3>
-            <ul className="space-y-2">
+          {/* Liens importants */}
+          <div className="flex-1 flex flex-col items-center md:items-end mt-6 md:mt-0">
+            <h3 className="font-semibold text-white uppercase tracking-wide mb-4 text-base">
+              Liens importants
+            </h3>
+            <ul className="space-y-2 text-center md:text-right">
               <li>
-                <Link to="/qui-sommes-nous" className="text-gray-300 hover:text-gray-400 text-sm">
+                <Link to="/qui-sommes-nous" className="text-gray-300 hover:text-white text-sm transition">
                   À propos
                 </Link>
               </li>
               <li>
-                <Link to="/pourquoi-automatiser" className="text-gray-300 hover:text-gray-400 text-sm">
-                  Pourquoi automatiser ?
+                <Link to="/pourquoi-automatiser" className="text-gray-300 hover:text-white text-sm transition">
+                  Pourquoi automatiser&nbsp;?
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-300 hover:text-gray-400 text-sm">
+                <Link to="/blog" className="text-gray-300 hover:text-white text-sm transition">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-gray-400 text-sm">
+                <Link to="/contact" className="text-gray-300 hover:text-white text-sm transition">
                   Contact
                 </Link>
               </li>
@@ -96,9 +93,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bas de page */}
-        <div className="mt-6 border-t border-gray-700 pt-4 text-center text-sm text-gray-300">
-          <p>© {new Date().getFullYear()} Loopivia. Tous droits réservés.</p>
+        {/* Copyright clean */}
+        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-xs text-gray-400 tracking-wide">
+          © {new Date().getFullYear()} Loopivia. Tous droits réservés.
         </div>
       </div>
     </footer>

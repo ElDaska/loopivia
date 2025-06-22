@@ -1,41 +1,47 @@
-import { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+// src/components/BackToTopButton.jsx
 
-const ScrollToTop = () => {
-  const [visible, setVisible] = useState(false);
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUp } from 'lucide-react';
 
-  // Montrer le bouton si scrollY > 300px
-  useEffect(() => {
-    const toggleVisibility = () => {
-      setVisible(window.scrollY > 300);
-    };
+const BackToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const scrollUp = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) setIsVisible(true);
+    else setIsVisible(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  // AnimatePresence gère l'apparition/disparition
   return (
     <AnimatePresence>
-      {visible && (
+      {isVisible && (
         <motion.button
-          onClick={scrollUp}
-          className="fixed bottom-6 right-6 z-[999] bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg backdrop-blur-md"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 100 }}
-          transition={{ duration: 0.4 }}
-          aria-label="Scroll to top"
+          onClick={scrollToTop}
+          aria-label="Retourner en haut de la page"
+          className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg"
+          style={{ background: 'hsl(222, 89%, 61%)' }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          whileHover={{ scale: 1.15, boxShadow: '0 0 20px hsla(222, 89%, 61%, 0.5)' }}
+          whileTap={{ scale: 0.9 }}
         >
-          <FaArrowUp className="h-5 w-5" />
+          <ArrowUp className="w-6 h-6" />
         </motion.button>
       )}
     </AnimatePresence>
   );
 };
 
-export default ScrollToTop;
+export default BackToTopButton;
