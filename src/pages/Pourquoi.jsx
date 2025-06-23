@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { ArrowRight, Settings, Brain, TrendingUp, Zap, Target, Shield, Rocket } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-
-// Données déplacées hors du composant pour éviter les re-créations
+// Données déplacées hors du composant et mémoïsées
 const LOOPIVIA_BENEFITS = [
   {
     icon: Settings,
@@ -67,7 +66,7 @@ const STATS = [
 const BenefitCard = ({ benefit, index }) => {
   const IconComponent = benefit.icon;
   
-  const cardVariants = {
+  const cardVariants = useMemo(() => ({
     hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
@@ -75,7 +74,7 @@ const BenefitCard = ({ benefit, index }) => {
       scale: 1,
       transition: { delay: index * 0.15, duration: 0.6, ease: "easeOut" },
     },
-  };
+  }), [index]);
 
   return (
     <motion.div
@@ -118,13 +117,6 @@ const BenefitCard = ({ benefit, index }) => {
         <div className={`h-1 bg-gradient-to-r ${benefit.gradient} rounded-full w-0 
                         group-hover:w-full transition-all duration-1000 delay-200`} />
       </div>
-      
-      {/* Bouton d'action */}
-      <button className="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-lg
-                         opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0
-                         transition-all duration-300 delay-100 font-medium">
-        
-      </button>
     </motion.div>
   );
 };
@@ -185,20 +177,20 @@ const StatCard = ({ stat, index }) => {
 };
 
 const PourquoiLoopivia = () => {
-  const [contactClicked, setContactClicked] = useState(false);
+  const navigate = useNavigate();
   
-  const handleContactClick = useCallback(() => {
-    setContactClicked(true);
-    alert("Redirection vers la page contact...");
-  }, []);
+  const handleContactClick = useCallback((e) => {
+    e.preventDefault();
+    navigate('/contact');
+  }, [navigate]);
 
-  // Variantes d'animation
-  const fadeInUp = {
+  // Variantes d'animation mémoïsées
+  const fadeInUp = useMemo(() => ({
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
+  }), []);
 
-  const staggerContainer = {
+  const staggerContainer = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -207,7 +199,23 @@ const PourquoiLoopivia = () => {
         delayChildren: 0.3,
       },
     },
-  };
+  }), []);
+
+  // Particules mémoïsées
+  const particles = useMemo(() => 
+    Array.from({ length: 30 }, (_, i) => (
+      <div
+        key={`particle-${i}`}
+        className="absolute w-2 h-2 bg-sky-400/20 rounded-full animate-pulse"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 3}s`,
+          animationDuration: `${2 + Math.random() * 3}s`
+        }}
+      />
+    ))
+  , []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -216,18 +224,7 @@ const PourquoiLoopivia = () => {
         {/* Background animé */}
         <div className="absolute inset-0 bg-gradient-to-r from-sky-900/20 via-transparent to-purple-900/20" />
         <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-sky-400/20 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
-              }}
-            />
-          ))}
+          {particles}
         </div>
         
         <div className="relative z-10 text-center py-20 md:py-32 px-6">
@@ -271,7 +268,7 @@ const PourquoiLoopivia = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
             >
               {STATS.map((stat, index) => (
-                <StatCard key={stat.label} stat={stat} index={index} />
+                <StatCard key={`stat-${stat.label}`} stat={stat} index={index} />
               ))}
             </motion.div>
           </div>
@@ -308,7 +305,7 @@ const PourquoiLoopivia = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
           >
             {LOOPIVIA_BENEFITS.map((benefit, index) => (
-              <BenefitCard key={benefit.title} benefit={benefit} index={index} />
+              <BenefitCard key={`benefit-${benefit.title}`} benefit={benefit} index={index} />
             ))}
           </motion.div>
         </div>
@@ -334,7 +331,7 @@ const PourquoiLoopivia = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ADDITIONAL_FEATURES.map((feature, index) => (
-              <FeatureCard key={feature.title} feature={feature} index={index} />
+              <FeatureCard key={`feature-${feature.title}`} feature={feature} index={index} />
             ))}
           </div>
         </div>
@@ -370,25 +367,23 @@ const PourquoiLoopivia = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block"
               >
-                <button
-                  onClick={handleContactClick}
+                <Link 
+                  to="/contact"
                   className="group relative inline-flex items-center justify-center 
                              bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500
                              text-white py-4 px-12 rounded-full font-bold text-xl
                              shadow-2xl shadow-sky-500/25 hover:shadow-sky-400/40
                              transform transition-all duration-300 ease-out
                              border border-sky-400/50 hover:border-sky-300/70"
+                  onClick={handleContactClick}
                 >
-                  <Link to="/contact" 
-                  className="flex items-center group cursor-pointer">
                   <span className="mr-3">Discutons de votre projet</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
-                  </Link>
                   
                   {/* Effet de brillance */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
                                   translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-full" />
-                </button>
+                </Link>
               </motion.div>
               
               {/* Garantie */}
@@ -400,11 +395,6 @@ const PourquoiLoopivia = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Footer placeholder */}
-      <div className="mt-20">
-        {/* FooterLoopivia serait ici */}
-      </div>
     </div>
   );
 };

@@ -67,9 +67,9 @@ const AuditHeroSection = () => {
     },
     {
       text: "En 2 minutes, j'ai obtenu un plan d'action complet. L'automatisation proposée nous a fait économiser 40% de temps sur nos processus.",
-      author: "Aminata Albis",
-      role: "Fondatrice, Albis Prestige",
-      avatar: "AA"
+      author: "Fatou Sene Diop",
+      role: "Fondatrice, MFSD Prestige",
+      avatar: "FS"
     }
   ]
 
