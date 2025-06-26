@@ -13,10 +13,12 @@ import PageAudit from './pages/PageAudit'; // Importation de la page d'audit
 import OffresLoopivia from './pages/Offres';
 import FloatingActions from './components/FloatingActions';
 import NotFound from './pages/NotFound';
+import CGU from './pages/CGU';
+import MentionsLegales from './pages/MentionsLegales'; // Importation de la page des mentions légales
 
 // ANALYTICS
 import CookieBanner from './components/CookieBanner';
-import Privacy from './pages/Privacy';
+import Privé from './pages/Privé'; // Importation de la page de politique de confidentialité
 
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
         <Route path="/blog" element={<Blog />} /> {/* Route pour la page "Blog" */} 
         <Route path="/blog/:slug" element={<BlogPost />} /> {/* Route pour les articles de blog */}  
         <Route path="/glossaire-automatisation" element={<GlossairePage />} /> {/* Route pour la page de glossaire */}
-        <Route path="/privacy" element={<Privacy />} /> {/* Route pour la page de politique de confidentialité */}
+        <Route path="/privé" element={<Privé />} /> {/* Route pour la page de politique de confidentialité */}
+        <Route path="/cgu" element={<CGU />} /> {/* Route pour la page des CGU */}
+        <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* Route pour la page des mentions légales */}
         <Route path="*" element={<NotFound />} /> {/* Route pour la page 404 */}
         
       </Routes>

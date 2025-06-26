@@ -594,52 +594,63 @@ const AuditAgent = () => {
     }
   }, [currentQ, answers, question])
 
-  // Soumission finale avec intégration backend
-  const handleSubmit = useCallback(async (finalAnswers) => {
-    setStep('loading')
-    
-    try {
-      const response = await fetch('http://localhost:8000/api/generate-audit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          user: userInfo, 
-          answers: finalAnswers 
-        })
-      })
-      
-      if (!response.ok) {
-        const errorText = await response.text()
-        throw new Error(`Erreur serveur: ${response.status} - ${errorText}`)
-      }
-      
-      const { report, pdf_url } = await response.json()
-      setReport(report)
-      setPdfUrl(pdf_url)
-      setStep('completed')
-    } catch (err) {
-      console.error('Erreur lors de la soumission:', err)
-      setError(`Erreur lors de la génération du rapport: ${err.message}`)
-      setStep('audit')
+  // Soumission finale avec intégration backend (dev + prod)
+const handleSubmit = useCallback(async (finalAnswers) => {
+  setStep("loading");
+
+  // 1) On récupère l’URL de l’API dans l’env (Vite injecte VITE_API_URL)
+  const API = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+
+  try {
+    const response = await fetch(`${API}/api/generate-audit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user: userInfo,
+        answers: finalAnswers,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Erreur serveur: ${response.status} – ${errorText}`);
     }
-  }, [userInfo])
+
+    const { report, pdf_url } = await response.json();
+    setReport(report);
+    setPdfUrl(pdf_url.startsWith("http") ? pdf_url : `${API}${pdf_url}`); // lien absolu
+    setStep("completed");
+  } catch (err) {
+    console.error("Erreur lors de la soumission:", err);
+    setError(`Erreur lors de la génération du rapport: ${err.message}`);
+    setStep("audit");
+  }
+}, [userInfo]);
+
 
   // Téléchargement du rapport PDF depuis le backend
-  const handleDownload = useCallback(async () => {
-    if (!pdfUrl) return
-    
-    setIsDownloading(true)
-    
-    try {
-      // Ouvrir le PDF dans un nouvel onglet
-      window.open(`http://localhost:8000${pdfUrl}`, '_blank')
-    } catch (err) {
-      console.error('Erreur téléchargement:', err)
-      setError('Erreur lors du téléchargement du rapport')
-    } finally {
-      setIsDownloading(false)
-    }
-  }, [pdfUrl])
+  // Ouvrir le PDF dans un nouvel onglet
+const handleDownload = useCallback(async () => {
+  setIsDownloading(true);
+
+  // URL backend (définie dans .env) - fallback localhost pour dev
+  const API = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+
+  try {
+    // Si pdfUrl est déjà absolu (commence par http), on l’utilise tel quel
+    const urlToOpen = pdfUrl.startsWith("http")
+      ? pdfUrl
+      : `${API}${pdfUrl}`;
+
+    window.open(urlToOpen, "_blank");
+  } catch (err) {
+    console.error("Erreur téléchargement:", err);
+    setError("Erreur lors du téléchargement du rapport");
+  } finally {
+    setIsDownloading(false);
+  }
+}, [pdfUrl]);
+
 
   // === RENDU CONDITIONNEL ===
   if (step === 'landing') {

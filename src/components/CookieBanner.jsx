@@ -5,7 +5,7 @@ import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 const CONFIG = {
   GTM_ID: "GTM-KLIGNFKR", // ← Ton vrai ID GTM ici
   COOKIE_NAME: "loopivia_cookies",
-  PRIVACY_URL: "/privacy"
+  PRIVACY_URL: "/privé"
 };
 
 // Injecte dynamiquement Google Tag Manager dans <head>

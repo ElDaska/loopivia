@@ -8,16 +8,20 @@ const Footer = () => {
   return (
     <footer className="bg-[#0f172a] text-white py-10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* --- Ligne principale : logo + colonnes de liens --- */}
         <div className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-4">
           {/* Bloc logo + intro + réseaux */}
           <div className="flex-1 flex flex-col items-center md:items-start">
             <div className="flex items-center mb-5">
               <img className="h-10 w-auto mr-3" src={logo} alt="Logo Loopivia" />
-              <span className="text-2xl font-bold text-white">Loopivia</span>
+              <span className="text-2xl font-bold">Loopivia</span>
             </div>
+
             <p className="text-sm text-gray-300 mb-4 text-center md:text-left max-w-xs">
               Libérez votre productivité avec des outils intelligents, accessibles et sur-mesure pour votre entreprise.
             </p>
+
+            {/* Réseaux sociaux */}
             <div className="flex space-x-5 mt-2 mb-4 md:mb-0">
               <a
                 href="https://x.com/ContactLoopivia"
@@ -28,11 +32,7 @@ const Footer = () => {
               >
                 <FaXTwitter className="h-5 w-5" />
               </a>
-              <Link
-                to="/comingsoon"
-                className="text-gray-300 hover:text-pink-400"
-                aria-label="Instagram"
-              >
+              <Link to="/comingsoon" className="text-gray-300 hover:text-pink-400" aria-label="Instagram">
                 <FiInstagram className="h-5 w-5" />
               </Link>
               <a
@@ -44,11 +44,7 @@ const Footer = () => {
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
-              <Link
-                to="/comingsoon"
-                className="text-gray-300 hover:text-blue-400"
-                aria-label="Facebook"
-              >
+              <Link to="/comingsoon" className="text-gray-300 hover:text-blue-400" aria-label="Facebook">
                 <FiFacebook className="h-5 w-5" />
               </Link>
               <a
@@ -65,9 +61,7 @@ const Footer = () => {
 
           {/* Liens importants */}
           <div className="flex-1 flex flex-col items-center md:items-end mt-6 md:mt-0">
-            <h3 className="font-semibold text-white uppercase tracking-wide mb-4 text-base">
-              Liens importants
-            </h3>
+            <h3 className="font-semibold uppercase tracking-wide mb-4 text-base">Liens importants</h3>
             <ul className="space-y-2 text-center md:text-right">
               <li>
                 <Link to="/qui-sommes-nous" className="text-gray-300 hover:text-white text-sm transition">
@@ -93,9 +87,28 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright clean */}
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-xs text-gray-400 tracking-wide">
-          © {new Date().getFullYear()} Loopivia. Tous droits réservés.
+        {/* --- Barre inférieure : copyright + pages légales --- */}
+        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 space-y-3 md:space-y-0">
+          <div>© {new Date().getFullYear()} Loopivia. Tous droits réservés.</div>
+
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 justify-center md:justify-end">
+            <li>
+              <Link to="/mentions-legales" className="hover:text-white transition">
+                Mentions légales
+              </Link>
+            </li>
+            <li>
+              <Link to="/privé" className="hover:text-white transition">
+                Politique de confidentialité
+              </Link>
+            </li>
+            <li>
+              <Link to="/cgu" className="hover:text-white transition">
+                CGU
+              </Link>
+            </li>
+          
+          </ul>
         </div>
       </div>
     </footer>
