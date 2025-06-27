@@ -600,8 +600,11 @@ const handleSubmit = useCallback(async (finalAnswers) => {
 
   // 1) On récupère l’URL de l’API dans l’env (Vite injecte VITE_API_URL)
   const isLocal = window.location.hostname === "localhost";
-  const API = import.meta.env.VITE_API_URL || (isLocal ? "http://localhost:8000" : "");
-  if (!API) throw new Error("VITE_API_URL non défini en production");
+  const API = 
+  import.meta.env.VITE_API_URL ??
+  (window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : window.location.origin); // fallback HTTPS même domaine
 
   try {
     const response = await fetch(`${API}/api/generate-audit`, {
@@ -637,8 +640,11 @@ const handleDownload = useCallback(async () => {
 
   // URL backend (définie dans .env) - fallback localhost pour dev
   const isLocal = window.location.hostname === "localhost";
-  const API = import.meta.env.VITE_API_URL || (isLocal ? "http://localhost:8000" : "");
-  if (!API) throw new Error("VITE_API_URL non défini en production");
+  const API = 
+  import.meta.env.VITE_API_URL ??
+  (window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : window.location.origin); // fallback HTTPS même domaine
 
   try {
     // Si pdfUrl est déjà absolu (commence par http), on l’utilise tel quel
