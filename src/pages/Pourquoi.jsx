@@ -242,7 +242,7 @@ const PourquoiLoopivia = () => {
               </span>{" "}
               <br />
               <span className="text-3xl md:text-5xl font-semibold text-slate-300">
-                pour transformer votre agence ?
+                pour transformer votre entreprise ?
               </span>
             </motion.h1>
             
@@ -256,7 +256,7 @@ const PourquoiLoopivia = () => {
             >
               Chez Loopivia, nous ne nous contentons pas d'automatiser. Nous réinventons vos processus avec des solutions
               stratégiques, l'intelligence artificielle et une expertise digitale pointue. Libérez le potentiel
-              de votre agence pour vous concentrer sur l'innovation et la croissance.
+              de votre entreprise pour vous concentrer sur l'innovation et la croissance.
             </motion.p>
 
             {/* Statistiques */}
@@ -354,7 +354,7 @@ const PourquoiLoopivia = () => {
               <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Prêt à Transformer{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500">
-                  Votre Agence
+                  Votre Entreprise
                 </span> ?
               </h3>
               <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
