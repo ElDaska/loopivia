@@ -16,7 +16,7 @@ const MentionsLegales = () => {
           <p><strong>Identifiant fiscal :</strong> 52468286</p>
           <p><strong>Numéro de taxe professionnelle :</strong> 13101965</p>
           <p><strong>Adresse :</strong> 8 Rue Ibn Taymiya, 30000 Fès, Maroc</p>
-          <p><strong>Email :</strong> contact@loopivia.com.com</p>
+          <p><strong>Email :</strong> contact@loopivia.com</p>
           <p><strong>Téléphone :</strong> +212 609 68 56 67</p>
         </article>
 
