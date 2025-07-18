@@ -9,14 +9,14 @@ const MentionsLegales = () => {
         {/* Éditeur du site */}
         <article className="text-gray-300 leading-relaxed space-y-2">
           <h2 className="text-2xl font-semibold text-white">1. Éditeur du site</h2>
-          <p><strong>Nom :</strong> ElHadji Balla</p>
+          <p><strong>Nom :</strong> ElHadji Balla Diop</p>
           <p><strong>Statut :</strong> Auto‑entrepreneur inscrit au Registre National de l’Auto‑Entrepreneur</p>
           <p><strong>Identifiant auto‑entrepreneur :</strong> 003083746000069</p>
           <p><strong>Centre de Formalités (CS) :</strong> C023175E</p>
           <p><strong>Identifiant fiscal :</strong> 52468286</p>
           <p><strong>Numéro de taxe professionnelle :</strong> 13101965</p>
           <p><strong>Adresse :</strong> 8 Rue Ibn Taymiya, 30000 Fès, Maroc</p>
-          <p><strong>Email :</strong> diop.ehb@gmail.com</p>
+          <p><strong>Email :</strong> contact@loopivia.com.com</p>
           <p><strong>Téléphone :</strong> +212 609 68 56 67</p>
         </article>
 
