@@ -58,7 +58,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://facebook.com/loopivia"
+                href="https://www.facebook.com/profile.php?id=61577705136418"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"

@@ -258,10 +258,10 @@ const Privacy = () => {
                 Pour exercer vos droits ou toute question concernant vos données personnelles :
               </p>
               <a 
-                href="mailto:support@loopivia.com" 
+                href="mailto:contact@loopivia.com" 
                 className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
               >
-                <span>support@loopivia.com</span>
+                <span>contact@loopivia.com</span>
                 <ArrowLeft className="w-4 h-4 rotate-180" />
               </a>
             </div>
@@ -423,7 +423,7 @@ const Privacy = () => {
                 <span className="text-sm font-medium text-gray-300">Dernière mise à jour</span>
               </div>
               <p className="text-gray-400 text-lg font-medium">
-                {new Date('2025-06-20').toLocaleDateString('fr-FR', { 
+                {new Date('2025-07-23').toLocaleDateString('fr-FR', { 
                   year: 'numeric', 
                   month: 'long', 
                   day: 'numeric' 

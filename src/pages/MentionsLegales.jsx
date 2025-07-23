@@ -65,9 +65,9 @@ const MentionsLegales = () => {
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <Phone className="w-4 h-4 text-blue-400" />
-                  <a href="tel:+212609685667" 
+                  <a href="tel:+2120712217196" 
                      className="text-blue-400 hover:text-blue-300 transition-colors">
-                    +212 609 68 56 67
+                    +212 07 12 21 71 96
                   </a>
                 </div>
               </div>
@@ -172,9 +172,9 @@ const MentionsLegales = () => {
               </p>
               <p className="text-gray-300 leading-relaxed mt-3">
                 Pour exercer ce droit, contactez-nous à{' '}
-                <a href="mailto:diop.ehb@gmail.com" 
+                <a href="mailto:contact@loopivia.com" 
                    className="text-purple-400 hover:text-purple-300 transition-colors font-medium">
-                  diop.ehb@gmail.com
+                  contact@loopivia.com
                 </a>
               </p>
             </div>

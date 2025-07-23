@@ -325,10 +325,10 @@ const CGU = () => {
                   </div>
                   <div>
                     <a 
-                      href="mailto:support@loopivia.com" 
+                      href="mailto:contact@loopivia.com" 
                       className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium text-lg"
                     >
-                      support@loopivia.com
+                      contact@loopivia.com
                     </a>
                     <p className="text-xs text-gray-400 mt-1">
                       Réponse sous 24h en moyenne
@@ -467,7 +467,7 @@ const CGU = () => {
               })}
             </p>
             <p className="text-xs text-gray-500 mt-2">
-              Version 1.0 - Document juridiquement contraignant
+              Version 1.0 
             </p>
           </div>
         </div>
