@@ -13,7 +13,11 @@ const Footer = () => {
           {/* Bloc logo + intro + réseaux */}
           <div className="flex-1 flex flex-col items-center md:items-start">
             <div className="flex items-center mb-5">
-              <img className="h-10 w-auto mr-3" src={logo} alt="Logo Loopivia" />
+              <img
+                className="h-10 w-auto mr-3"
+                src={logo}
+                alt="Logo Loopivia"
+              />
               <span className="text-2xl font-bold">Loopivia</span>
             </div>
 
@@ -27,32 +31,48 @@ const Footer = () => {
                 href="https://x.com/ContactLoopivia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-400"
                 aria-label="X / Twitter"
+                className="text-gray-300 hover:text-blue-400 transition"
               >
                 <FaXTwitter className="h-5 w-5" />
               </a>
-              <Link to="/comingsoon" className="text-gray-300 hover:text-pink-400" aria-label="Instagram">
+
+              <a
+                href="https://instagram.com/loopivia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-gray-300 hover:text-pink-400 transition"
+              >
                 <FiInstagram className="h-5 w-5" />
-              </Link>
+              </a>
+
               <a
                 href="https://www.linkedin.com/company/loopivia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500"
                 aria-label="LinkedIn"
+                className="text-gray-300 hover:text-blue-500 transition"
               >
                 <FiLinkedin className="h-5 w-5" />
               </a>
-              <Link to="/comingsoon" className="text-gray-300 hover:text-blue-400" aria-label="Facebook">
+
+              <a
+                href="https://facebook.com/loopivia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-gray-300 hover:text-blue-400 transition"
+              >
                 <FiFacebook className="h-5 w-5" />
-              </Link>
+              </a>
+
               <a
                 href="https://www.tiktok.com/@loopivia?refer=creator_embed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-fuchsia-400"
                 aria-label="TikTok"
+                className="text-gray-300 hover:text-fuchsia-400 transition"
               >
                 <FaTiktok className="h-5 w-5" />
               </a>
@@ -61,25 +81,39 @@ const Footer = () => {
 
           {/* Liens importants */}
           <div className="flex-1 flex flex-col items-center md:items-end mt-6 md:mt-0">
-            <h3 className="font-semibold uppercase tracking-wide mb-4 text-base">Liens importants</h3>
+            <h3 className="font-semibold uppercase tracking-wide mb-4 text-base">
+              Liens importants
+            </h3>
             <ul className="space-y-2 text-center md:text-right">
               <li>
-                <Link to="/qui-sommes-nous" className="text-gray-300 hover:text-white text-sm transition">
+                <Link
+                  to="/qui-sommes-nous"
+                  className="text-gray-300 hover:text-white text-sm transition"
+                >
                   À propos
                 </Link>
               </li>
               <li>
-                <Link to="/pourquoi-automatiser" className="text-gray-300 hover:text-white text-sm transition">
+                <Link
+                  to="/pourquoi-automatiser"
+                  className="text-gray-300 hover:text-white text-sm transition"
+                >
                   Pourquoi automatiser&nbsp;?
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-300 hover:text-white text-sm transition">
+                <Link
+                  to="/blog"
+                  className="text-gray-300 hover:text-white text-sm transition"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-white text-sm transition">
+                <Link
+                  to="/contact"
+                  className="text-gray-300 hover:text-white text-sm transition"
+                >
                   Contact
                 </Link>
               </li>
@@ -93,21 +127,29 @@ const Footer = () => {
 
           <ul className="flex flex-wrap gap-x-4 gap-y-2 justify-center md:justify-end">
             <li>
-              <Link to="/mentions-legales" className="hover:text-white transition">
+              <Link
+                to="/mentions-legales"
+                className="hover:text-white transition"
+              >
                 Mentions légales
               </Link>
             </li>
             <li>
-              <Link to="/privé" className="hover:text-white transition">
+              <Link
+                to="/privé"
+                className="hover:text-white transition"
+              >
                 Politique de confidentialité
               </Link>
             </li>
             <li>
-              <Link to="/cgu" className="hover:text-white transition">
+              <Link
+                to="/cgu"
+                className="hover:text-white transition"
+              >
                 CGU
               </Link>
             </li>
-          
           </ul>
         </div>
       </div>
