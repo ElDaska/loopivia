@@ -610,9 +610,7 @@ const handleSubmit = useCallback(async (finalAnswers) => {
   try {
     const response = await fetch(`${API}/api/generate-audit`, {
       method: "POST",
-      headers: { "Content-Type": "application/json",
-        "X-API-Key": import.meta.env.VITE_BACKEND_API_KEY
-       },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         user: userInfo,
         answers: finalAnswers,
