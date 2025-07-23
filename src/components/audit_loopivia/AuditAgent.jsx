@@ -7,6 +7,7 @@ import {
   FileText, Eye, Lock, UserCheck, Mail, AtSign, Globe, Rocket,
   Star, Zap, Target, Clock, Award, ChevronRight, Play
 } from 'lucide-react'
+import ReportPreview from './ReportPreview'
 
 // === QUESTIONS DEMANDEES ===
 const auditQuestions = [
@@ -727,20 +728,12 @@ const handleDownload = useCallback(async () => {
             Votre audit d'automatisation personnalisé est prêt
           </p>
 
-          {report && (
-            <div className="bg-slate-800/50 rounded-2xl p-6 mb-8 text-left border border-slate-700/50">
-              <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-blue-400" />
-                Aperçu de votre rapport :
-              </h3>
-              <div 
-                className="text-slate-300 prose prose-invert max-w-none line-clamp-6"
-                dangerouslySetInnerHTML={{ 
-                  __html: report.substring(0, 400).replace(/\n/g, '<br>') + '...' 
-                }}
-              />
-            </div>
-          )}
+          <ReportPreview
+          report={report}
+          userInfo={userInfo}
+          date={new Date().toLocaleDateString()}
+          />
+
           
           <motion.button
             onClick={handleDownload}
