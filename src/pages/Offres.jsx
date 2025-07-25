@@ -218,6 +218,21 @@ const PricingCard = memo(({ offer, currency }) => {
     [convertPrice]
   );
 
+  // Calcul du prix des mensualités converties
+  const convertedInstallmentAmount = useMemo(() => {
+    if (!offer.installments) return null;
+    
+    // Calculer le montant de la mensualité basé sur le prix total converti
+    const totalConverted = convertPrice(offer.price);
+    const installmentAmount = Math.round(totalConverted / offer.installments.count);
+    
+    return installmentAmount;
+  }, [offer.installments, offer.price, convertPrice]);
+
+  const handleContactClick = () => {
+    window.location.href = '/contact';
+  };
+
   const isPopular = offer.popular;
 
   return (
@@ -258,9 +273,11 @@ const PricingCard = memo(({ offer, currency }) => {
             </div>
             
             {/* Prix en plusieurs fois */}
-            {offer.installments && (
+            {offer.installments && convertedInstallmentAmount && (
               <p className="text-sm text-gray-400 mt-2">
-                ou <span className="font-semibold text-white">{offer.installments.count} × {formatPrice(offer.installments.amount)}{currency.symbol}</span>
+                ou <span className="font-semibold text-white">
+                  {offer.installments.count} × {new Intl.NumberFormat('fr-FR').format(convertedInstallmentAmount)}{currency.symbol}
+                </span>
               </p>
             )}
           </div>
@@ -305,6 +322,7 @@ const PricingCard = memo(({ offer, currency }) => {
         {/* CTA */}
         <div className="p-8 pt-0">
           <button 
+            onClick={handleContactClick}
             className={`w-full py-4 rounded-xl font-bold text-white shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 ${
               isPopular
                 ? `bg-gradient-to-r ${offer.gradient} hover:shadow-xl hover:shadow-${offer.shadow} focus:ring-purple-400 hover:scale-105`
@@ -333,6 +351,10 @@ const PricingPage = () => {
   const handleCurrencyChange = useCallback((currencyCode) => {
     setSelectedCurrency(currencyCode);
   }, []);
+
+  const handleFinalContactClick = () => {
+    window.location.href = '/contact';
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">
@@ -396,7 +418,10 @@ const PricingPage = () => {
 
           {/* CTA final */}
           <div className="text-center">
-            <button className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900 group">
+            <button 
+              onClick={handleFinalContactClick}
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900 group"
+            >
               <Sparkles className="w-6 h-6" />
               Discutons de votre projet
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />

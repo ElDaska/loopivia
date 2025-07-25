@@ -98,10 +98,10 @@ const auditQuestions = [
   },
   {
     id: 'budget',
-    question: "Quel niveau d'investissement mensuel considérez-vous comme raisonnable ?",
+    question: "Quel niveau d'investissement considérez-vous comme raisonnable ?",
     type: 'qcm',
     description: "Votre réponse nous aide à vous proposer des solutions adaptées et réalistes.",
-    options: ['Moins de 200€/mois', '200€ - 500€/mois', '500€ - 1500€/mois', '+1500€/mois', 'Je préfère ne pas répondre'],
+    options: ['Moins de 200€', '200€ - 500€', '500€ - 1500€', '+1500€', 'Je préfère ne pas répondre'],
     allowOther: false,
     ui: { icon: 'CircleDollarSign' }
   },
