@@ -12,6 +12,7 @@ import PageAudit from './pages/PageAudit'; // Importation de la page d'audit
 
 import OffresLoopivia from './pages/Offres';
 import FloatingActions from './components/FloatingActions';
+import ChatbotIA from './components/chatbot/ChatbotIA';
 import NotFound from './pages/NotFound';
 import CGU from './pages/CGU';
 import MentionsLegales from './pages/MentionsLegales'; // Importation de la page des mentions légales
@@ -26,6 +27,7 @@ function App() {
     <div className="min-h-screen bg-[#0f172a] text-white">
       <Header />
       <FloatingActions /> {/* Le bouton flottant pour lancer l'audit IA */}
+      <ChatbotIA /> {/* Le chatbot IA pour l'assistance */}
       <CookieBanner /> {/* Le bandeau de consentement aux cookies */}
       
       {/* Définition des routes de l'application */}

@@ -26,3 +26,12 @@ dist-ssr
 # Env files (dev & prod)
 .env*
 !important:.env.example
+
+
+# .env.development
+REACT_APP_CHATBOT_API_URL=https://dev-loopivia-n8n.mycompany.com/webhook/chat
+REACT_APP_TRAIN_SECRET=devSuperSecretToken123
+
+# .env.production
+REACT_APP_CHATBOT_API_URL=https://loopivia-n8n.mycompany.com/webhook/chat
+REACT_APP_TRAIN_SECRET=prodInstancielUltraSecret456
