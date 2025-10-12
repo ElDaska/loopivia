@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaUsers, FaLightbulb, FaChartBar, FaArrowRight, FaStar } from 'react-icons/fa';
 import { memo, useMemo } from 'react';
+import Footer from "../components/Footer";
 
 // Données déplacées hors du composant pour éviter les re-créations
 const LOOPIVIA_VALUES = [
@@ -26,10 +27,10 @@ const LOOPIVIA_VALUES = [
 ];
 
 const STATS = [
-  { number: "150+", label: "Projets Réalisés" },
+  { number: "100+", label: "Projets Réalisés" },
   { number: "98%", label: "Clients Satisfaits" },
-  { number: "50+", label: "Experts Dédiés" },
-  { number: "5+", label: "Années d'Excellence" }
+  { number: "5+", label: "Experts Dédiés" },
+  { number: "4+", label: "Années d'Excellence" }
 ];
 
 // Composant de carte de valeur mémorisé
@@ -319,6 +320,7 @@ const QuiSommesNousLoopivia = () => {
       <div className="mt-20">
         {/* FooterLoopivia serait ici */}
       </div>
+      <Footer />
     </div>
   );
 };

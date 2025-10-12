@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useCallback, useMemo } from 'react';
 import { ArrowRight, Settings, Brain, TrendingUp, Zap, Target, Shield, Rocket } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 // Données déplacées hors du composant et mémoïsées
 const LOOPIVIA_BENEFITS = [
@@ -395,6 +396,7 @@ const PourquoiLoopivia = () => {
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

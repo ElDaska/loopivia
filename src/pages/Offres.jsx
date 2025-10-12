@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo, memo } from "react";
 import { Zap, Rocket, Crown, ArrowRight, Check, Sparkles, Info, Server, Bot, Target, Settings, FileText, Headphones } from "lucide-react";
+import Footer from "../components/Footer";
 
 // Configuration des devises avec taux de change précis
 const CURRENCIES = [
@@ -434,6 +435,7 @@ const PricingPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

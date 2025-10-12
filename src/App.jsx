@@ -42,7 +42,7 @@ function App() {
         <Route path="/blog" element={<Blog />} /> {/* Route pour la page "Blog" */} 
         <Route path="/blog/:slug" element={<BlogPost />} /> {/* Route pour les articles de blog */}  
         <Route path="/glossaire-automatisation" element={<GlossairePage />} /> {/* Route pour la page de glossaire */}
-        <Route path="/privé" element={<Privé />} /> {/* Route pour la page de politique de confidentialité */}
+        <Route path="/politique-de-confidentialite" element={<Privé />} /> {/* Route pour la page de politique de confidentialité */}
         <Route path="/cgu" element={<CGU />} /> {/* Route pour la page des CGU */}
         <Route path="/mentions-legales" element={<MentionsLegales />} /> {/* Route pour la page des mentions légales */}
         <Route path="*" element={<NotFound />} /> {/* Route pour la page 404 */}

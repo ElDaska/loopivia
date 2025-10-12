@@ -17,14 +17,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 
-// Composant Footer basique pour la démo
-const Footer = () => (
-  <footer className="bg-slate-900 border-t border-slate-700 py-8">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-      <p className="text-gray-400 text-sm">© 2024 Loopivia. Tous droits réservés.</p>
-    </div>
-  </footer>
-);
+import Footer from "../components/Footer";
 
 const CGU = () => {
   const sections = [

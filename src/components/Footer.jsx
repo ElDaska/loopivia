@@ -136,7 +136,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/privé"
+                to="/politique-de-confidentialite"
                 className="hover:text-white transition"
               >
                 Politique de confidentialité
