@@ -58,9 +58,9 @@ const ADDITIONAL_FEATURES = [
 
 const STATS = [
   { number: "300%", label: "Amélioration ROI Moyenne", icon: TrendingUp },
-  { number: "45j", label: "Temps Moyen de Déploiement", icon: Zap },
+  { number: "15j", label: "Temps Moyen de Déploiement", icon: Zap },
   { number: "24/7", label: "Support Expert Dédié", icon: Shield },
-  { number: "99.9%", label: "Taux de Satisfaction Client", icon: Target }
+  { number: "98%", label: "Taux de Satisfaction Client", icon: Target }
 ];
 
 // Composant de carte de bénéfice optimisé
