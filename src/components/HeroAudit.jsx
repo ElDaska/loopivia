@@ -26,7 +26,7 @@ const AuditHeroSection = () => {
     { value: '2 min', label: 'Temps requis', icon: Timer },
     { value: '30h/sem', label: 'Temps économisé', icon: Clock },
     { value: 'ROI 6x', label: 'Retour moyen', icon: TrendingUp },
-    { value: '95%', label: 'Satisfaction', icon: Star }
+    { value: '98%', label: 'Satisfaction', icon: Star }
   ]
 
   const features = [

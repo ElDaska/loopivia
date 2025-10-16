@@ -30,6 +30,6 @@ export const workflowConnections = [
 
 export const featureItems = [
     { icon: Zap, title: 'Automatisation Intelligente', description: 'Processus automatisés avec IA pour optimiser les performances.' },
-    { icon: Satellite, title: 'Simulation Avancée', description: 'Modélisation précise des missions spatiales et aéronautiques.' },
-    { icon: Rocket, title: 'Déploiement Rapide', description: 'Mise en œuvre accélérée des solutions d\'ingénierie.' },
+    { icon: Satellite, title: 'Simulation Avancée', description: 'Modélisation précise des missions en fonction des besoins.' },
+    { icon: Rocket, title: 'Déploiement Rapide', description: 'Mise en œuvre accélérée des solutions.' },
 ];
