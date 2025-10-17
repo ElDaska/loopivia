@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Pourquoi from './pages/Pourquoi';
 import Contact from './pages/Contact';
+import Faq from './pages/Faq';
 import Qui from './pages/Qui'; // Importation de la page "Qui sommes-nous ?"
 import ComingSoon from './pages/ComingSoon';
 import Blog from './pages/Blog';
@@ -35,6 +36,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/pourquoi-automatiser" element={<Pourquoi />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/audit" element={<PageAudit />} /> {/* Route pour la page d'audit */}
         <Route path="/offres-loopivia" element={<OffresLoopivia />} /> {/* Route pour la page des offres Loopivia */}
         <Route path="/qui-sommes-nous" element={<Qui />} /> {/* Route pour la page "Qui sommes-nous ?" */}
